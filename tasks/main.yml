@@ -63,3 +63,8 @@
 - name: install alertmanager
   include: install-alertmanager.yml
   when: '"alertmanager" in prometheus_components'
+
+- name: install postfix-exporter
+  include: install-postfix-exporter.yml
+  when: '"postfix_exporter" in prometheus_components'
+

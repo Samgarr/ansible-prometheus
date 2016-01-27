@@ -41,3 +41,17 @@
 - name: stop alertmanager
   service: name=alertmanager state=stopped
   when: prometheus_use_service|bool
+
+
+
+- name: restart postfix_exporter
+  service: name=postfix_exporter state=restarted
+  when: prometheus_use_service|bool
+
+- name: reload postfix_exporter
+  service: name=postfix_exporter state=reloaded
+  when: prometheus_use_service|bool
+
+- name: stop postfix_exporter
+  service: name=postfix_exporter state=stopped
+  when: prometheus_use_service|bool
